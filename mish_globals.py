@@ -42,3 +42,22 @@ global_navbar = '''
   <button type="submit" class="tip-bottom" title="Search"><i class="icon-search icon-white"></i></button>
 </div>
 '''
+global_sidebar = '''
+<div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul>
+    <li class="active"><a href="{a}"><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+    <li class=""><a href="{b}"><i class="icon icon-signal"></i> <span>Server Analytics (WIP)</span></a> </li>
+    <li class=""><a href="{c}"><i class="icon icon-info-sign"></i> <span>Updates</span></a> </li>
+    <li class=""><a href="{d}"><i class="icon icon-th-list"></i> <span>Servers</span></a></li>
+    <li class=""><a href="{e}"><i class="icon icon-user"></i> <span>Users</span></a></li>
+    <li class=""><a href="{f}"><i class="icon icon-th"></i> <span>Addons</span> <span class="label label-important">!</span></a></li>
+    <li class="content"> <span>Disk Space Usage</span>
+      <div class="progress progress-mini active progress-striped">
+        <div style="width: {disk_pct}%;" class="bar"></div>
+      </div>
+      <span class="percent">{disk_pct}</span>
+      <div class="stat">{disk_use}</div>
+    </li>
+  </ul>
+</div>
+'''
