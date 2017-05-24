@@ -25,7 +25,7 @@ import wget
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
 from flask_user import (SQLAlchemyAdapter, UserManager, UserMixin,
-                        login_required, roles_required)
+                        login_required, roles_required, current_user)
 import mish_globals
 
 
@@ -160,7 +160,7 @@ def create_app(test_config=None):                   # For automated tests
     def dashboard():
         global_head = mish_globals.global_head.format(a=url_for('static', filename='css/bootstrap.min.css'), b=url_for('static', filename='css/bootstrap-responsive.min.css'), c=url_for('static', filename='css/fullcalendar.css'), d=url_for('static', filename='css/matrix-style.css'), e=url_for('static', filename='css/matrix-media.css'), f=url_for('static', filename='font-awesome/css/font-awesome.css'), g=url_for('static', filename='css/jquery.gritter.css'))
         global_messages_count = 0
-        global_navbar = mish_globals.global_navbar.format(a='global_user', b=global_messages_count)
+        global_navbar = mish_globals.global_navbar.format(a=current_user.username, b=global_messages_count)
         global_sidebar = mish_globals.global_sidebar.format(a=url_for('index'), b=url_for('network_stats'), c=url_for('updates'), d=url_for('servers'), e=url_for('users'), f=url_for('addons'), disk_use=disk_usage('use'), disk_pct=disk_usage('pct'))
         return render_template('index.html', global_title='<title>MISH - Dashboard</title>', global_head=global_head, global_navbar=global_navbar, global_sidebar=global_sidebar)
 
